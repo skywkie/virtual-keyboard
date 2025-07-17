@@ -1,13 +1,23 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="icon" type="image/png" href="/keyboard.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Virtual keyboard</title>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="inner">
+			<textarea id="input_field" placeholder="Start typing..." autofocus readonly></textarea>
+		</div>
+		<div id="keyboard_container">
+		</div>
+	</div>
+
+	<script type="module" src="./src/main.ts"></script>
+</body>
+
 </html>

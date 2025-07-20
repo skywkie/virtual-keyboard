@@ -108,6 +108,9 @@ class Keyboard {
       case "del":
         this.inputField.value = "";
         break;
+      case "enter":
+        this.inputField.value += "\n";
+        break;
       case "caps":
         toggleCaps();
         break;

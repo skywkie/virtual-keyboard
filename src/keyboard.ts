@@ -144,7 +144,7 @@ class Keyboard {
         toggleLanguage();
         break;
       case "space":
-        this.inputField.value += " ";
+        addSymbolToInputField(" ")
         break;
       default:
         if (this.isShiftPressed) {

@@ -4,7 +4,6 @@ import {
   isUpperLowerLetter,
   removeSymbolByIndex,
 } from "./helpers";
-import type { HTMLCollectionOf } from "./types";
 
 class Keyboard {
   keyboardContainer: HTMLDivElement;

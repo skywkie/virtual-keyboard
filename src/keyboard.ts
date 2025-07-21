@@ -52,6 +52,8 @@ class Keyboard {
 
     const keys = this.userLanguage === "ru-RU" ? this.languages.ruKeys : this.languages.enKeys;
 
+    let tabIndex = 1;
+
     keys.forEach((keyRow) => {
       const keyboardRow = document.createElement("div");
 
@@ -70,6 +72,9 @@ class Keyboard {
         key === "caps" && isCapsPressed && keyElement.classList.add("pressed");
 
         keyElement.onclick = () => this.handleClick(key);
+
+        keyElement.tabIndex = tabIndex;
+        tabIndex++;
 
         keyboardRow.appendChild(keyElement);
       });

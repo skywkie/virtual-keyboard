@@ -23,7 +23,7 @@ const insertSymbolByIndex = (str: string, index: number, char: string) => {
 };
 
 const removeSymbolByIndex = (str: string, index: number) => {
-  return str.substring(0, index-1) + str.substring(index);
+  return str.substring(0, index - 1) + str.substring(index);
 };
 
 const isUpperLowerLetter = (key: string) => upperLowerLetters.includes(key);

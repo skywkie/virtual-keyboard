@@ -13,7 +13,7 @@ class Keyboard {
   readonly languages = {
     enKeys: [
       firstKeyboardString,
-      ["tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "del"],
+      ["tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "del"],
       ["caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "enter"],
       ["shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "shift"],
       ["language", "space"],
@@ -144,7 +144,7 @@ class Keyboard {
         toggleLanguage();
         break;
       case "space":
-        addSymbolToInputField(" ")
+        addSymbolToInputField(" ");
         break;
       default:
         if (this.isShiftPressed) {

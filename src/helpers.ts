@@ -14,6 +14,18 @@ const upperLowerLetters = [
 	"э", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю"
 ];
 
+const insertSymbolByIndex = (str: string, index: number, char: string) => {
+  const strArray = str.split("");
+
+  strArray.splice(index, 0, char);
+
+  return strArray.join("");
+};
+
+const removeSymbolByIndex = (str: string, index: number) => {
+  return str.substring(0, index-1) + str.substring(index);
+};
+
 const isUpperLowerLetter = (key: string) => upperLowerLetters.includes(key);
 
-export { firstKeyboardString, isUpperLowerLetter };
+export { firstKeyboardString, insertSymbolByIndex, removeSymbolByIndex, isUpperLowerLetter };

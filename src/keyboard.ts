@@ -1,4 +1,9 @@
-import { firstKeyboardString, isUpperLowerLetter } from "./helpers";
+import {
+  firstKeyboardString,
+  insertSymbolByIndex,
+  isUpperLowerLetter,
+  removeSymbolByIndex,
+} from "./helpers";
 import type { HTMLCollectionOf } from "./types";
 
 class Keyboard {
@@ -34,9 +39,13 @@ class Keyboard {
     this.userLanguage = navigator.language;
   }
   init() {
-    this.renderKeyboard(this.isShiftPressed, this.isShiftPressed);
+    this.renderKeyboard(this.isShiftPressed, this.isShiftPressed, -1);
   }
-  renderKeyboard(isShiftPressed: boolean = false, isCapsPressed: boolean = false) {
+  renderKeyboard(
+    isShiftPressed: boolean = false,
+    isCapsPressed: boolean = false,
+    cursorPosition: number = -1
+  ) {
     const keyboard = document.createElement("div");
     keyboard.id = "keyboard";
 
@@ -71,10 +80,13 @@ class Keyboard {
     keyboard.appendChild(fragment);
 
     this.keyboardContainer.appendChild(keyboard);
+
+    this.inputField.setSelectionRange(cursorPosition, cursorPosition);
   }
-  reRenderKeyboard(isShiftPressed: boolean, isCapsPressed: boolean) {
+
+  reRenderKeyboard(isShiftPressed: boolean, isCapsPressed: boolean, cursorPosition: number) {
     this.closeKeyboard();
-    this.renderKeyboard(isShiftPressed, isCapsPressed);
+    this.renderKeyboard(isShiftPressed, isCapsPressed, cursorPosition);
   }
 
   closeKeyboard() {
@@ -83,33 +95,45 @@ class Keyboard {
   }
 
   handleClick(key: string) {
+    const cursorPosition = this.inputField.selectionStart;
+
     const toggleShift = () => {
       this.isShiftPressed = !this.isShiftPressed;
-      this.reRenderKeyboard(this.isShiftPressed, this.isCapsPressed); // !!!!!!!!!!!
+      this.reRenderKeyboard(this.isShiftPressed, this.isCapsPressed, cursorPosition); // !!!!!!!!!!!
     };
 
     const toggleCaps = () => {
       this.isCapsPressed = !this.isCapsPressed;
-      this.reRenderKeyboard(this.isShiftPressed, this.isCapsPressed);
+      this.reRenderKeyboard(this.isShiftPressed, this.isCapsPressed, cursorPosition);
     };
 
     const toggleLanguage = () => {
       this.userLanguage === "ru-RU" ? (this.userLanguage = "en-EN") : (this.userLanguage = "ru-RU");
-      this.reRenderKeyboard(this.isShiftPressed, this.isCapsPressed);
+      this.reRenderKeyboard(this.isShiftPressed, this.isCapsPressed, cursorPosition);
+    };
+
+    const removeSymbolFromInputField = () => {
+      this.inputField.value = removeSymbolByIndex(this.inputField.value, cursorPosition);
+      this.inputField.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
+    };
+
+    const addSymbolToInputField = (key: string) => {
+      this.inputField.value = insertSymbolByIndex(this.inputField.value, cursorPosition, key);
+      this.inputField.setSelectionRange(cursorPosition + 1, cursorPosition + 1);
     };
 
     switch (key) {
       case "backspace":
-        this.inputField.value = this.inputField.value.slice(0, -1);
+        removeSymbolFromInputField();
         break;
       case "tab":
-        this.inputField.value += "	";
+        addSymbolToInputField("	");
         break;
       case "del":
         this.inputField.value = "";
         break;
       case "enter":
-        this.inputField.value += "\n";
+        addSymbolToInputField("\n");
         break;
       case "caps":
         toggleCaps();
@@ -126,14 +150,14 @@ class Keyboard {
       default:
         if (this.isShiftPressed) {
           toggleShift();
-          this.inputField.value += key.toUpperCase();
+          addSymbolToInputField(key.toUpperCase());
           break;
         }
         if (this.isCapsPressed) {
-          this.inputField.value += key.toUpperCase();
+          addSymbolToInputField(key.toUpperCase());
           break;
         }
-        this.inputField.value += key;
+        addSymbolToInputField(key);
         break;
     }
   }

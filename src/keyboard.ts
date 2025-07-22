@@ -103,7 +103,7 @@ class Keyboard {
 
     const toggleShift = () => {
       this.isShiftPressed = !this.isShiftPressed;
-      this.reRenderKeyboard(this.isShiftPressed, this.isCapsPressed, cursorPosition); // !!!!!!!!!!!
+      this.reRenderKeyboard(this.isShiftPressed, this.isCapsPressed, cursorPosition);
     };
 
     const toggleCaps = () => {

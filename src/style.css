@@ -9,6 +9,13 @@
   --inner-width: 80dvh;
 }
 
+:root {
+  --main-text-color: #000;
+  --main-text-hover-color: #e8dee8;
+
+  --main-box-shadow-color: #20202080;
+}
+
 .wrapper {
   height: 100dvh;
   width: 100dvw;
@@ -26,17 +33,46 @@
   height: var(--inner-width);
 }
 
-#input_field {
+#input_field_container {
   position: relative;
-  resize: none;
   width: 100%;
   height: 280px;
+}
+
+.clipboard_button {
+  position: absolute;
+  width: 60px;
+  bottom: -70px;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 15px;
+  transition: 0.1s;
+  cursor: pointer;
+}
+.clipboard_button:hover {
+  color: #e8dee8;
+  background-color: #527eec;
+}
+
+.clipboard_button_img {
+  width: 100%;
+}
+
+#input_field {
+  resize: none;
+  width: 100%;
+  height: 100%;
   outline: 1px black solid;
   font-size: 2.8rem;
   border-radius: 18px;
   margin-bottom: 40px;
   padding: 10px 20px;
   letter-spacing: 1px;
+}
+
+.clipboard_button {
+  position: absolute;
 }
 
 #keyboard {
@@ -62,7 +98,14 @@
   border-radius: 11px;
   cursor: pointer;
   user-select: none;
-  box-shadow: 1px 2px 2px #28282880;
+  box-shadow: 1px 2px 2px #20202080;
+  transition: 0.1s;
+}
+
+.key_row_element:hover {
+  box-shadow: 1px 2px 2px #20202080;
+  background-color: #527eec;
+  color: #dbd3db;
 }
 
 .backspace,
@@ -94,8 +137,8 @@
 
 .caps {
   width: 16%;
-  max-width: 180px;
-  min-width: 100px;
+  max-width: 210px;
+  min-width: 110px;
 }
 
 .shift {

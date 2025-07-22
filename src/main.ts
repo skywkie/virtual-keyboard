@@ -1,12 +1,14 @@
 import "./style.css";
 import Keyboard from "./keyboard";
 import { useMessageByEvent } from "./ui";
+import { insertSymbolByIndex } from "./helpers";
 
 const wrapper = document.querySelector(".wrapper") as HTMLDivElement;
 
 const keyboard = new Keyboard("keyboard_container", "input_field");
 
-const clipboardButton = document.querySelector(".clipboard_button") as HTMLButtonElement;
+const clipboardButton = document.querySelector(".clipboard") as HTMLButtonElement;
+const pasteButton = document.querySelector(".paste") as HTMLButtonElement;
 
 const textarea = document.getElementById("input_field") as HTMLTextAreaElement;
 
@@ -29,6 +31,15 @@ clipboardButton.onclick = () => {
   wrapper.appendChild(message);
 
   message.show();
+};
+
+pasteButton.onclick = async () => {
+  const textToInsert = await navigator.clipboard.readText();
+
+  const cursorPosition = textarea.selectionStart;
+
+  textarea.value = insertSymbolByIndex(textarea.value, cursorPosition, textToInsert);
+  textarea.setSelectionRange(cursorPosition + textToInsert.length, cursorPosition + textToInsert.length);
 };
 
 // TODO: сделать так, чтобы tabindex работал вместе с фокусом на textarea (важно, чтобы был курсор)

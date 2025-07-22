@@ -73,10 +73,14 @@
   height: 280px;
 }
 
-.clipboard_button {
-  position: absolute;
+.command_button_container {
+  display: flex;
+  flex-direction: row;
+	gap: 10px;
+}
+
+.command_button {
   width: 60px;
-  bottom: -70px;
   background-color: transparent;
   border: 1px solid black;
   border-radius: 20px;
@@ -84,7 +88,7 @@
   transition: 0.1s;
   cursor: pointer;
 }
-.clipboard_button:hover {
+.command_button:hover {
   color: var(--secondary-text-color);
   background-color: var(--secondary-background-color);
 }
@@ -100,9 +104,9 @@
   outline: 1px black solid;
   font-size: 2.8rem;
   border-radius: 18px;
-  margin-bottom: 40px;
   padding: 10px 20px;
   letter-spacing: 1px;
+	margin-bottom: 5px;
 }
 
 .clipboard_button {

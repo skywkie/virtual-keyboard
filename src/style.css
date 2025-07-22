@@ -5,15 +5,49 @@
   outline: none;
   border: none;
   font-family: "Courier New", Courier, monospace;
-
-  --inner-width: 80dvh;
 }
 
 :root {
-  --main-text-color: #000;
-  --main-text-hover-color: #e8dee8;
+  --primary-text-color: #000;
+  --secondary-text-color: #e8dee8;
 
-  --main-box-shadow-color: #20202080;
+  --primary-background-color: #3737d5;
+  --secondary-background-color: #527eec;
+
+  --primary-box-shadow-color: #20202080;
+}
+
+.message_dialog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%, -47%);
+  width: 420px;
+  height: 42px;
+  background-color: var(--primary-background-color);
+  color: var(--secondary-text-color);
+  font-size: 1.4rem;
+  text-align: center;
+  border-radius: 20px;
+  animation-name: message_dialog;
+}
+
+@keyframes message_dialog {
+  from {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.9;
+  }
+  85% {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 .wrapper {
@@ -30,7 +64,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 85dvw;
-  height: var(--inner-width);
+  height: 80dvh;
 }
 
 #input_field_container {
@@ -51,8 +85,8 @@
   cursor: pointer;
 }
 .clipboard_button:hover {
-  color: #e8dee8;
-  background-color: #527eec;
+  color: var(--secondary-text-color);
+  background-color: var(--secondary-background-color);
 }
 
 .clipboard_button_img {
@@ -98,14 +132,14 @@
   border-radius: 11px;
   cursor: pointer;
   user-select: none;
-  box-shadow: 1px 2px 2px #20202080;
+  box-shadow: 1px 2px 2px var(--primary-box-shadow-color);
   transition: 0.1s;
 }
 
 .key_row_element:hover {
-  box-shadow: 1px 2px 2px #20202080;
-  background-color: #527eec;
-  color: #dbd3db;
+  box-shadow: 1px 2px 2px var(--primary-box-shadow-color);
+  background-color: var(--secondary-background-color);
+  color: var(--secondary-text-color);
 }
 
 .backspace,
@@ -162,6 +196,6 @@
 }
 
 .pressed {
-  background-color: #3737d5;
-  color: #fff;
+  background-color: var(--primary-background-color);
+  color: var(--secondary-text-color);
 }

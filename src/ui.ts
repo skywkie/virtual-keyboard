@@ -1,4 +1,4 @@
-const useMessageByEvent = (text: string, timeout: number) => {
+const createMessageByEvent = (text: string, timeout: number) => {
   const message = document.createElement("dialog");
   const messageText = document.createElement("p");
 
@@ -17,4 +17,4 @@ const useMessageByEvent = (text: string, timeout: number) => {
   return message;
 };
 
-export { useMessageByEvent };
+export { createMessageByEvent };

@@ -1,7 +1,9 @@
 import "./style.css";
+
 import Keyboard from "./keyboard";
-import { useMessageByEvent } from "./ui";
+import { createMessageByEvent } from "./ui";
 import { insertSymbolByIndex } from "./helpers";
+import { useToggleTheme } from "./hooks";
 
 const wrapper = document.querySelector(".wrapper") as HTMLDivElement;
 
@@ -26,7 +28,7 @@ clipboardButton.onclick = () => {
   const previousMessage = document.querySelector(".message_dialog");
   previousMessage && previousMessage.remove();
 
-  const message = useMessageByEvent("Text has copied to clipboard", 6000);
+  const message = createMessageByEvent("Text has copied to clipboard", 6000);
 
   wrapper.appendChild(message);
 

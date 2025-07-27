@@ -1,18 +1,24 @@
 import "./style.css";
 
 import Keyboard from "./keyboard";
-import { createMessageByEvent } from "./ui";
+
+import { createMessageByEvent, createToggleThemeButton } from "./ui";
+
 import { insertSymbolByIndex } from "./helpers";
-import { useToggleTheme } from "./hooks";
 
 const wrapper = document.querySelector(".wrapper") as HTMLDivElement;
 
 const keyboard = new Keyboard("keyboard_container", "input_field");
 
+const textarea = document.getElementById("input_field") as HTMLTextAreaElement;
+
+const buttonContainer = document.querySelector(".command_button_container") as HTMLDivElement;
+
 const clipboardButton = document.querySelector(".clipboard") as HTMLButtonElement;
 const pasteButton = document.querySelector(".paste") as HTMLButtonElement;
+const toggleThemeButton = createToggleThemeButton();
 
-const textarea = document.getElementById("input_field") as HTMLTextAreaElement;
+buttonContainer.appendChild(toggleThemeButton);
 
 window.addEventListener("DOMContentLoaded", () => {
   keyboard.init();

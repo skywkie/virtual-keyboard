@@ -1,3 +1,16 @@
+import { useToggleTheme } from "./hooks";
+
+const createToggleThemeButton = () => {
+  const themeToggleButton = document.createElement("button");
+  themeToggleButton.id = "theme_toggle_button";
+
+  const { toggleTheme } = useToggleTheme();
+
+  themeToggleButton.onclick = () => toggleTheme();
+
+  return themeToggleButton;
+};
+
 const createMessageByEvent = (text: string, timeout: number) => {
   const message = document.createElement("dialog");
   const messageText = document.createElement("p");
@@ -17,4 +30,4 @@ const createMessageByEvent = (text: string, timeout: number) => {
   return message;
 };
 
-export { createMessageByEvent };
+export { createMessageByEvent, createToggleThemeButton };

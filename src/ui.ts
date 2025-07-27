@@ -1,8 +1,8 @@
 import { useToggleTheme } from "./hooks";
 
-const createToggleThemeButton = () => {
-  const themeToggleButton = document.createElement("button");
-  themeToggleButton.id = "theme_toggle_button";
+const createToggleThemeButton = (buttonId: string) => {
+  // TODO: проверка на отсутствие элемента с таким классом
+  const themeToggleButton = document.getElementById(buttonId) as HTMLButtonElement;
 
   const { toggleTheme } = useToggleTheme();
 

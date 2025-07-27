@@ -12,13 +12,9 @@ const keyboard = new Keyboard("keyboard_container", "input_field");
 
 const textarea = document.getElementById("input_field") as HTMLTextAreaElement;
 
-const buttonContainer = document.querySelector(".command_button_container") as HTMLDivElement;
-
 const clipboardButton = document.querySelector(".clipboard") as HTMLButtonElement;
 const pasteButton = document.querySelector(".paste") as HTMLButtonElement;
-const toggleThemeButton = createToggleThemeButton();
-
-buttonContainer.appendChild(toggleThemeButton);
+const toggleThemeButton = createToggleThemeButton("toggle_theme_button");
 
 window.addEventListener("DOMContentLoaded", () => {
   keyboard.init();

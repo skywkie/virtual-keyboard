@@ -1,10 +1,9 @@
 import { defineConfig } from "vite";
-import path from "path";
 
 export default defineConfig({
   base: "/virtual_keyboard/",
   build: {
-    outDir: "dist",
+    outDir: "docs",
     rollupOptions: {
       output: {
         // CSS → /styles/

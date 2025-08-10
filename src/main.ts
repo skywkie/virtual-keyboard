@@ -1,4 +1,4 @@
-import "./style.css";
+import "./styles/main.css";
 
 import Keyboard from "./keyboard";
 
@@ -14,7 +14,7 @@ const textarea = document.getElementById("input_field") as HTMLTextAreaElement;
 
 const clipboardButton = document.querySelector(".clipboard") as HTMLButtonElement;
 const pasteButton = document.querySelector(".paste") as HTMLButtonElement;
-const toggleThemeButton = createToggleThemeButton("toggle_theme_button");
+createToggleThemeButton("toggle_theme_button");
 
 window.addEventListener("DOMContentLoaded", () => {
   keyboard.init();

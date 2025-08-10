@@ -20,10 +20,6 @@ window.addEventListener("DOMContentLoaded", () => {
   keyboard.init();
 });
 
-textarea.onblur = () => {
-  textarea.focus();
-};
-
 clipboardButton.onclick = () => {
   navigator.clipboard.writeText(textarea.value);
 

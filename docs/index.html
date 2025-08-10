@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="icon" type="image/png" href="/keyboard.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Virtual keyboard</title>
+  <script type="module" crossorigin src="/virtual_keyboard/js/index.WyqzaIzM.js"></script>
+  <link rel="stylesheet" crossorigin href="/virtual_keyboard/styles/index.aByq5tcE.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="inner">
+			<div id="input_field_container">
+				<textarea id="input_field" placeholder="Start typing..." tabindex="-1" autofocus></textarea>
+				<div class="command_button_container">
+					<button class="command_button clipboard">
+						<svg class="clipboard_button_img" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+							viewBox="0 0 24 24" fill="currentColor">
+							<path
+								d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+						</svg>
+					</button>
+					<button class="command_button paste">
+						<svg class="command_button_img" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+							viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+							stroke-linejoin="round">
+							<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+							<polyline points="14 2 14 8 20 8" />
+							<path d="M12 15v4" />
+							<path d="M10 17h4" />
+						</svg>
+					</button>
+					<button id="toggle_theme_button" class="command_button" aria-label="auto" aria-live="polite">
+						<svg class="sun_and_moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+							<circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
+							<g class="sun_beams" stroke="currentColor">
+								<line x1="12" y1="1" x2="12" y2="3" />
+								<line x1="12" y1="21" x2="12" y2="23" />
+								<line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+								<line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+								<line x1="1" y1="12" x2="3" y2="12" />
+								<line x1="21" y1="12" x2="23" y2="12" />
+								<line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+								<line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+							</g>
+						</svg>
+					</button>
+				</div>
+			</div>
+			<div id="keyboard_container">
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

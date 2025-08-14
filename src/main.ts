@@ -24,7 +24,7 @@ clipboardButton.onclick = () => {
   navigator.clipboard.writeText(textarea.value);
 
   const previousMessage = document.querySelector(".message_dialog");
-  previousMessage && previousMessage.remove();
+  if (previousMessage) previousMessage.remove();
 
   const message = createMessageByEvent("Text has copied to clipboard", 6000);
 
@@ -45,4 +45,3 @@ pasteButton.onclick = async () => {
 // TODO: сделать так, чтобы tabindex работал вместе с фокусом на textarea (важно, чтобы был курсор)
 // TODO: синхронизировать визуал с реальной клавиатурой
 // TODO: добавить стрелочки и чтоб буква добавлялась там, где курсор
-// TODO: добавить смену темы: светлая/темная

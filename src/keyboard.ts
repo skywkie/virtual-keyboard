@@ -43,7 +43,7 @@ class Keyboard {
   renderKeyboard(
     isShiftPressed: boolean = false,
     isCapsPressed: boolean = false,
-    cursorPosition: number = -1
+    cursorPosition: number = -1,
   ) {
     const keyboard = document.createElement("div");
     keyboard.id = "keyboard";
@@ -62,14 +62,17 @@ class Keyboard {
       keyRow.forEach((key) => {
         const keyElement = document.createElement("button");
 
-        (isShiftPressed || isCapsPressed) && isUpperLowerLetter(key)
-          ? (keyElement.innerText = key.toUpperCase())
-          : (keyElement.innerText = key);
+        if ((isShiftPressed || isCapsPressed) && isUpperLowerLetter(key)) {
+          keyElement.innerText = key.toUpperCase();
+        } else {
+          keyElement.innerText = key;
+        }
 
         keyElement.classList = `key_row_element ${key}`;
 
-        key === "shift" && isShiftPressed && keyElement.classList.add("pressed");
-        key === "caps" && isCapsPressed && keyElement.classList.add("pressed");
+        if ((key === "shift" && isShiftPressed) || (key === "caps" && isCapsPressed)) {
+          keyElement.classList.add("pressed");
+        }
 
         keyElement.onclick = () => this.handleClick(key);
 

@@ -1,14 +1,15 @@
 import { useToggleTheme } from "./hooks";
 
 const createToggleThemeButton = (buttonId: string) => {
-  // TODO: проверка на отсутствие элемента с таким классом
-  const themeToggleButton = document.getElementById(buttonId) as HTMLButtonElement;
+  const themeToggleButton = document.getElementById(buttonId);
 
-  const { toggleTheme } = useToggleTheme();
+  if (themeToggleButton) {
+    const { toggleTheme } = useToggleTheme();
 
-  themeToggleButton.onclick = () => toggleTheme();
+    themeToggleButton.onclick = () => toggleTheme();
 
-  return themeToggleButton;
+    return themeToggleButton;
+  }
 };
 
 const createMessageByEvent = (text: string, timeout: number) => {

@@ -12,16 +12,18 @@
   --primary-text-color: #000;
   --secondary-text-color: #e8dee8;
 
+  --primary-outline-color: #000;
+
   --wrapper-background-color: #fff;
 
   --textarea-background-color: #e7e7e7;
 
   --key-background-color: #e4e2e2;
-  --key-background-color-hover: #527eec;
+  --key-background-color-secondary: #527eec;
   --key-pressed-background-color: #3737d5;
 
   --command-button-svg-color: #000;
-  --command-button-svg-color-hover: #fff;
+  --command-button-svg-color-secondary: #fff;
 
   --message-dialog-background-color: #8bebf6;
 
@@ -32,16 +34,18 @@
   --primary-text-color: #dadada;
   --secondary-text-color: #000;
 
+  --primary-outline-color: whitesmoke;
+
   --wrapper-background-color: #111111;
 
   --textarea-background-color: #1c1c1c;
 
   --key-background-color: #201647;
-  --key-background-color-hover: #527eec;
+  --key-background-color-secondary: #527eec;
   --key-pressed-background-color: #3737d5;
 
   --command-button-svg-color: #fff;
-  --command-button-svg-color-hover: #000;
+  --command-button-svg-color-secondary: #000;
 
   --message-dialog-background-color: #000;
 
@@ -100,9 +104,35 @@
 }
 
 #input_field_container {
+  display: flex;
+  flex-direction: column;
   position: relative;
   width: 100%;
-  height: 280px;
+  height: 360px;
+	gap: 5px;
+}
+
+#textarea_hint {
+  color: var(--primary-text-color);
+  font-size: 1.1rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#input_field {
+  color: var(--primary-text-color);
+  background-color: var(--textarea-background-color);
+  resize: none;
+  width: 100%;
+  height: 100%;
+  outline: 1px black solid;
+  font-size: 2.8rem;
+  border-radius: 18px;
+  padding: 10px 20px;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+#input_field:focus {
+  outline: 2px solid var(--primary-outline-color);
 }
 
 .command_button_container {
@@ -121,17 +151,20 @@
   transition: 0.1s;
   cursor: pointer;
   &:hover {
-    color: var(--command-button-svg-color-hover);
-    background-color: var(--key-background-color-hover);
+    color: var(--command-button-svg-color-secondary);
+    background-color: var(--key-background-color-secondary);
   }
   & > .clipboard_button_img {
     width: 100%;
   }
 }
+.command_button:focus {
+  outline: 2px solid var(--primary-outline-color);
+}
 
 #toggle_theme_button {
   position: absolute;
-  right: 20px;
+  right: 0;
   padding-top: 2px;
   aspect-ratio: 1;
   & > .sun_and_moon {
@@ -142,20 +175,6 @@
       stroke-width: 2;
     }
   }
-}
-
-#input_field {
-  color: var(--primary-text-color);
-  background-color: var(--textarea-background-color);
-  resize: none;
-  width: 100%;
-  height: 100%;
-  outline: 1px black solid;
-  font-size: 2.8rem;
-  border-radius: 18px;
-  padding: 10px 20px;
-  letter-spacing: 1px;
-  margin-bottom: 5px;
 }
 
 .clipboard_button {
@@ -189,9 +208,12 @@
   transition: 0.1s;
   background-color: var(--key-background-color);
   &:hover {
-    background-color: var(--key-background-color-hover);
+    background-color: var(--key-background-color-secondary);
     color: var(--secondary-text-color);
   }
+}
+.key_row_element:focus {
+  outline: 2px solid var(--primary-outline-color);
 }
 
 .backspace,

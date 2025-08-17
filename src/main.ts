@@ -36,12 +36,5 @@ clipboardButton.onclick = () => {
 pasteButton.onclick = async () => {
   const textToInsert = await navigator.clipboard.readText();
 
-  const cursorPosition = textarea.selectionStart;
-
-  textarea.value = insertSymbolByIndex(textarea.value, cursorPosition, textToInsert);
-  textarea.setSelectionRange(cursorPosition + textToInsert.length, cursorPosition + textToInsert.length);
+  textarea.value = insertSymbolByIndex(textarea.value, -1, textToInsert);
 };
-
-// TODO: сделать так, чтобы tabindex работал вместе с фокусом на textarea (важно, чтобы был курсор)
-// TODO: синхронизировать визуал с реальной клавиатурой
-// TODO: добавить стрелочки и чтоб буква добавлялась там, где курсор

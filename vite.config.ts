@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/virtual_keyboard/",
+  base: "/virtual-keyboard/",
   build: {
     outDir: "docs",
     rollupOptions: {

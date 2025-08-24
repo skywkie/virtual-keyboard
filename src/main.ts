@@ -6,14 +6,14 @@ import { createMessageByEvent, createToggleThemeButton } from "./ui";
 
 import { insertSymbolByIndex } from "./helpers";
 
-const wrapper = document.querySelector(".wrapper") as HTMLDivElement;
+const wrapper = document.querySelector(".wrapper")! as HTMLDivElement;
 
 const keyboard = new Keyboard("keyboard_container", "input_field");
 
-const textarea = document.getElementById("input_field") as HTMLTextAreaElement;
+const textarea = document.getElementById("input_field")! as HTMLTextAreaElement;
 
-const clipboardButton = document.querySelector(".clipboard") as HTMLButtonElement;
-const pasteButton = document.querySelector(".paste") as HTMLButtonElement;
+const clipboardButton = document.querySelector(".clipboard")! as HTMLButtonElement;
+const pasteButton = document.querySelector(".paste")! as HTMLButtonElement;
 createToggleThemeButton("toggle_theme_button");
 
 window.addEventListener("DOMContentLoaded", () => {

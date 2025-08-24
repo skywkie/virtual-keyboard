@@ -1,7 +1,7 @@
 import {
   firstKeyboardString,
   insertSymbolByIndex,
-  isUpperLowerLetter,
+  isUpperLowerKey,
   removeSymbolByIndex,
 } from "./helpers";
 
@@ -43,7 +43,7 @@ class Keyboard {
   renderKeyboard(
     isShiftPressed: boolean = false,
     isCapsPressed: boolean = false,
-    cursorPosition: number = -1,
+    cursorPosition: number,
   ) {
     const keyboard = document.createElement("div");
     keyboard.id = "keyboard";
@@ -60,7 +60,7 @@ class Keyboard {
       keyRow.forEach((key) => {
         const keyElement = document.createElement("button");
 
-        if ((isShiftPressed || isCapsPressed) && isUpperLowerLetter(key)) {
+        if ((isShiftPressed || isCapsPressed) && isUpperLowerKey(key)) {
           keyElement.innerText = key.toUpperCase();
         } else {
           keyElement.innerText = key;
@@ -97,7 +97,7 @@ class Keyboard {
   }
 
   handleClick(key: string) {
-    const cursorPosition = this.inputField.selectionStart;
+    const cursorPosition = this.inputField.value.length;
 
     const toggleShift = () => {
       this.isShiftPressed = !this.isShiftPressed;

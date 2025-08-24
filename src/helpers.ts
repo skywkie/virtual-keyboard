@@ -6,7 +6,7 @@ for (let i = 1; i < 10; i++) {
 const firstKeyboardString = ["`", ...numbers, "0", "-", "+", "backspace"];
 
 // prettier-ignore
-const upperLowerLetters = [
+const upperLowerKeys = [
 	"q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d",
 	"f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m",
 	"й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х",
@@ -26,6 +26,6 @@ const removeSymbolByIndex = (str: string, index: number) => {
   return str.substring(0, index - 1) + str.substring(index);
 };
 
-const isUpperLowerLetter = (key: string) => upperLowerLetters.includes(key);
+const isUpperLowerKey = (key: string) => upperLowerKeys.includes(key);
 
-export { firstKeyboardString, insertSymbolByIndex, removeSymbolByIndex, isUpperLowerLetter };
+export { firstKeyboardString, insertSymbolByIndex, removeSymbolByIndex, isUpperLowerKey };
